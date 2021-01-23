@@ -24,7 +24,12 @@ const seenPath = path.join(dataPath, encodeURIComponent(feedURL))
 let seen
 try {
   const read = fs.readFileSync(seenPath, 'utf8')
-  seen = JSON.parse(read)
+  try {
+    seen = JSON.parse(read)
+  } catch (error) {
+    process.stderr.write('Error parsing JSON of seen permalinks: ' + error)
+    process.exit(1)
+  }
 } catch (error) {
   seen = []
 }
