@@ -1,6 +1,6 @@
 {
   "name": "list-new-rss-items",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "download and parse Atom/RSS feeds, printing the permalinks of new items",
   "author": "Kyle E. Mitchell <kyle@kemitchell.com> (https://kemitchell.com/)",
   "repository": "kemitchell/list-new-rss-items.js",
