@@ -1,0 +1,17 @@
+{
+  "name": "list-new-rss-items",
+  "version": "0.0.0",
+  "description": "download and parse Atom/RSS feeds, printing the permalinks of new items",
+  "author": "Kyle E. Mitchell <kyle@kemitchell.com> (https://kemitchell.com/)",
+  "repository": "kemitchell/list-new-rss-items.js",
+  "license": "BlueOak-1.0.0",
+  "bin": "./bin.js",
+  "files": [
+    "bin.js"
+  ],
+  "dependencies": {
+    "env-paths": "^2.2.0",
+    "feedparser": "^2.2.10",
+    "http-https": "^1.0.0"
+  }
+}
