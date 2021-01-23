@@ -69,8 +69,18 @@ http.get(feedURL, (response) => {
         })
         .once('end', () => {
           // Write our updated list of seen permalinks to disk.
-          fs.mkdirSync(path.dirname(seenPath), { recursive: true })
-          fs.writeFileSync(seenPath, JSON.stringify(seen))
+          try {
+            fs.mkdirSync(path.dirname(seenPath), { recursive: true })
+          } catch (error) {
+            process.stderr.write('Error creating data directory: ' + error)
+            process.exit(1)
+          }
+          try {
+            fs.writeFileSync(seenPath, JSON.stringify(seen))
+          } catch (error) {
+            process.stderr.write('Error writing seen permalinks file: ' + error)
+            process.exit(1)
+          }
           process.exit(0)
         })
     })
