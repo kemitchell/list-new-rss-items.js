@@ -55,7 +55,7 @@ http.get(feedURL, (response) => {
           process.exit(1)
         })
         .on('data', (item) => {
-          const permalink = item.permalink
+          const { title, permalink } = item.permalink
           if (!permalink) {
             process.stderr.write('Item without permalink: ' + JSON.stringify(item))
             return
@@ -63,7 +63,7 @@ http.get(feedURL, (response) => {
           // If we haven't seen this permalink before,
           // print it and add it to the list of those we've seen.
           if (!seen.includes(permalink)) {
-            process.stdout.write(permalink + '\n')
+            process.stdout.write(`${title}\t${permalink}\n`)
             seen.push(permalink)
           }
         })
