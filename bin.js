@@ -55,7 +55,7 @@ http.get(feedURL, (response) => {
           process.exit(1)
         })
         .on('data', (item) => {
-          const { title, permalink } = item.permalink
+          const { title, permalink } = item
           if (!permalink) {
             process.stderr.write('Item without permalink: ' + JSON.stringify(item))
             return
